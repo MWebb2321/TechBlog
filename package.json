@@ -1,0 +1,30 @@
+{
+  "name": "techblog",
+  "version": "1.0.0",
+  "description": "A tech blog using MVC paradigm, Express, Sequelize, and Handlebars",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MWebb2321/TechBlog.git"
+  },
+  "author": "MWebb2321",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MWebb2321/TechBlog/issues"
+  },
+  "homepage": "https://github.com/MWebb2321/TechBlog#readme",
+  "dependencies": {
+    "connect-session-sequelize": "^7.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "express-session": "^1.17.1",
+    "handlebars": "^4.7.7",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2"
+  }
+}
