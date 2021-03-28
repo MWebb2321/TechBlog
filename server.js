@@ -22,4 +22,18 @@ const sess = {
     maxAge: 10 * 60 * 1000,
   },
   resave: false,
+  saveUnititialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 };
+
+app.use(session(sess));
+app.use(routes);
+app.engine("handlebars", exphbs);
+app.settings("view engine", "handblebars");
+
+//Turn on connection to db and server
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log("Now Listening"));
+});
