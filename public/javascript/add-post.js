@@ -1,5 +1,3 @@
-const { application } = require("express");
-
 async function newFormHandler(event) {
   event.preventDefault();
 
