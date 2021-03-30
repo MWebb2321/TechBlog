@@ -1,47 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bold Blog</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
-    <link rel="stylesheet" href="/stylesheet/style.css">
-    <script defer src="https://use.fontawesome.com/releases.v5.15.3/js/all.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bold Blog</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <div class="wrapper">
-        <header>
-            <h1 class="has-text-black px-3 py-3 has-text-weight-bold">bold blog: a tech blog</h1>
-            <nav class="navbar mt-2">
-                {{#if loggedIn}}
-            <a href="/" class="navbar-item is-hoverable pt-1">homepage</a>
-            <a href="/dashboard" class="navbar-item is-hoverable pt-1">dashboard</a>
-            <a href="/dashboard/create/" class="navbar-item is-hoverable pt-1 mr-4">create post</a>
-            <button id="logout" class="button is-danger">logout</button>
-            {{else}}
-            <a href="/" class="navbar-item is-hoverable pt-1">homepage</a>
-            <a href="/login" class="button is-primary">login</a>
-            {{/if}}            
-            </nav>
-        </header>
-
-        <main>
-            {{ body }}
-        </main>
-        <footer class="footer rows pb-2">
-        <div class="row-is-full content has-text-centered">
-            <p>
-            <a href="/">homepage</a>{{#if loggedIn}} | 
-            <a href="/dashboard/">dashboard</a> | 
-            <a href="/dashboard/create/">create new post</a>
-            {{else}}
-             | <a href="/login/">login</a>
-            {{/if}}
-            </p>
-        </div>
-      <div class="row-is-full content has-text-centered">
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+        <span role="img" aria-label="money">💸</span>
+        <a href="/">Tech Blog</a>
+      </h1>
+      <nav>
+        {{#if logged_in}}
+        <a href="/profile">profile</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+      {{{ body }}}
+    </main>
+    <footer>
+      
+    </footer>
+  </div>      <div class="row-is-full content has-text-centered">
     <p>
       <strong>bold blog</strong> by <a href="https://github.com/MWebb2321">Matthew Webb</a> | contact details:
       <a href="https://github.com/MWebb2321"><i class="fab fa-github"></i></a> |  

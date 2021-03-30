@@ -2,9 +2,10 @@
   "name": "techblog",
   "version": "1.0.0",
   "description": "A tech blog using MVC paradigm, Express, Sequelize, and Handlebars",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "node index.js"
+    "test": "node server.js",
+    "seed": "node seeds/seeds.js"
   },
   "repository": {
     "type": "git",
