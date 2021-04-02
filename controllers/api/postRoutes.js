@@ -1,6 +1,28 @@
 const router = require("express").Router();
-const { Post } = require("../../models");
+const { Posts } = require("../../models");
 const withAuth = require("../../utils/auth");
+
+router.get('/posts', async (req, res) => {
+  try {
+    const postsData = await Posts.findAll();
+    res.status(200).json(postsData);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+});
+
+router.get('/posts/:id', async (req, res) => {
+  try {
+    const postsData = await Posts..findByPk(req.params.id,);
+    if (!postsData) {
+        res.status(404).json({ message: 'No post found.' });
+        return;
+    }
+    res.status(200).json(postsData);
+} catch (err) {
+    res.status(500).json(err);
+}
+});
 
 router.post("/", withAuth, async (req, res) => {
   try {

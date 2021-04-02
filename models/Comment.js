@@ -1,6 +1,5 @@
-const { Model, DateTypes } = require("/sequelize");
+const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const { DataTypes } = require("sequelize/types");
 
 class Comment extends Model {}
 
@@ -10,7 +9,7 @@ Comment.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrements: true,
+      autoIncrement: true,
     },
     comment: {
       type: DataTypes.STRING,
@@ -38,3 +37,5 @@ Comment.init(
     modelName: "comment",
   }
 );
+
+module.exports = Comment;
