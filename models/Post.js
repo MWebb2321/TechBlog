@@ -25,12 +25,6 @@ Post.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    username: {
-      type: DataTypes.STRING,
-    },
-    user_comment: {
-      type: DataTypes.STRING,
-    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
