@@ -11,11 +11,12 @@ const newCommentHandler = async (event) => {
       body: JSON.stringify({ comment, post_id }),
       header: { "Content-Type": "application/json" },
     });
-  }
-  if (response.ok) {
-    console.log(JSON.stringify({ comment, post_id }));
-  } else {
-    alert("Failed to create post");
+
+    if (response.ok) {
+      console.log(JSON.stringify({ comment, post_id }));
+    } else {
+      alert("Failed to create post");
+    }
   }
 };
 
