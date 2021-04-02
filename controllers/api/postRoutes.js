@@ -2,26 +2,44 @@ const router = require("express").Router();
 const { Posts } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-router.get('/posts', async (req, res) => {
+router.get("/posts", async (req, res) => {
   try {
     const postsData = await Posts.findAll();
     res.status(200).json(postsData);
-    } catch (err) {
-      res.status(500).json(err);
-    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-router.get('/posts/:id', async (req, res) => {
+router.get("/posts/:id", async (req, res) => {
   try {
-    const postsData = await Posts..findByPk(req.params.id,);
+    const postsData = await Posts.findByPk(req.params.id);
     if (!postsData) {
-        res.status(404).json({ message: 'No post found.' });
-        return;
+      res.status(404).json({ message: "No post found." });
+      return;
     }
     res.status(200).json(postsData);
-} catch (err) {
+  } catch (err) {
     res.status(500).json(err);
-}
+  }
+});
+
+router.put("/post/:id", withAuth, (req, res) => {
+  Posts.update(
+    {
+      title: req.body.title,
+      body: req.body.body,
+    },
+    {
+      where: {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((updatedPost) => {
+      res.json(updatedPost);
+    })
+    .catch((err) => res.json(err));
 });
 
 router.post("/", withAuth, async (req, res) => {
